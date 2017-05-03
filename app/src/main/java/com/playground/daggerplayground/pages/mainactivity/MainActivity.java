@@ -1,9 +1,11 @@
-package com.playground.daggerplayground;
+package com.playground.daggerplayground.pages.mainactivity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.playground.daggerplayground.DaggerPlayGroundApplication;
+import com.playground.daggerplayground.R;
 import com.playground.daggerplayground.data.IceLongCoffee;
 import com.playground.daggerplayground.data.LongCoffee;
 import com.playground.daggerplayground.data.MajorObject;
@@ -11,6 +13,11 @@ import com.playground.daggerplayground.data.ShortCoffee;
 import com.playground.daggerplayground.injection.component.ActivityComponent;
 import com.playground.daggerplayground.injection.component.DaggerActivityComponent;
 import com.playground.daggerplayground.injection.module.ActivityModule;
+import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
+import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenter;
+import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenterImpl;
+import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
+import com.playground.daggerplayground.services.preference.PreferenceService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -34,6 +41,18 @@ public class MainActivity extends AppCompatActivity {
     @Named("WITHOUT_ICE")
     IceLongCoffee iceLongCoffeeWithoutIce;
 
+    @Inject
+    MainActivityView view;
+
+    @Inject
+    MainActivityPresenter presenter;
+
+    @Inject
+    PreferenceService preferenceService;
+
+    @Inject
+    MainActivityModel model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
                 .applicationComponent(DaggerPlayGroundApplication.get(this).getComponent())
                 .build();
         activityComponent.inject(this);
+
+        view.onCreate(this);
+        presenter.attachView(view);
+        presenter.loadUserData(model);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.detachView();
     }
 
     @Override

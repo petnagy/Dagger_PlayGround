@@ -6,6 +6,7 @@ import android.content.Context;
 import com.playground.daggerplayground.DaggerPlayGroundApplication;
 import com.playground.daggerplayground.injection.ApplicationContext;
 import com.playground.daggerplayground.injection.module.ApplicationModule;
+import com.playground.daggerplayground.services.preference.PreferenceService;
 
 import javax.inject.Singleton;
 
@@ -22,6 +23,8 @@ public interface ApplicationComponent {
     Context getContext();
 
     Application getApplication();
+
+    PreferenceService provideSharedPreference();
 
     void inject(DaggerPlayGroundApplication daggerPlayGroundApplication);
 }

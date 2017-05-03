@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".DaggerPlayGroundApplication">
-        <activity android:name=".MainActivity">
+        <activity android:name=".pages.mainactivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

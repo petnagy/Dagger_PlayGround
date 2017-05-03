@@ -1,6 +1,6 @@
 package com.playground.daggerplayground.injection.component;
 
-import com.playground.daggerplayground.MainActivity;
+import com.playground.daggerplayground.pages.mainactivity.MainActivity;
 import com.playground.daggerplayground.injection.PerActivity;
 import com.playground.daggerplayground.injection.module.ActivityModule;
 import com.playground.daggerplayground.injection.module.CoffeeModule;

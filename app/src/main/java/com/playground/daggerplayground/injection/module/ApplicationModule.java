@@ -38,6 +38,6 @@ public class ApplicationModule {
     @Singleton
     @Provides
     PreferenceService provideSharedPreference(@ApplicationContext Context context) {
-        return new SharedPreferenceService();
+        return new SharedPreferenceService(context);
     }
 }

@@ -5,4 +5,6 @@ package com.playground.daggerplayground.services.preference;
  */
 
 public interface PreferenceService {
+
+    boolean isUserLoggedIn();
 }
