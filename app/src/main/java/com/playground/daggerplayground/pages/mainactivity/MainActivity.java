@@ -17,12 +17,13 @@ import com.playground.daggerplayground.pages.mainactivity.model.MainActivityMode
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenter;
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenterImpl;
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
+import com.playground.daggerplayground.pages.mainactivity.view.OnUserActionCallback;
 import com.playground.daggerplayground.services.preference.PreferenceService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnUserActionCallback {
 
     @Inject
     MajorObject majorObject;
@@ -84,5 +85,29 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity", longCoffee.createDrink());
         Log.d("MainActivity", iceLongCoffee.createDrink());
         Log.d("MainActivity", iceLongCoffeeWithoutIce.createDrink());
+    }
+
+    @Override
+    public void onLoginPressed() {
+        preferenceService.setUserLoggedIn(true);
+        model.setLoggedIn(true);
+        presenter.loadUserData(model);
+    }
+
+    @Override
+    public void onLogOutPressed() {
+        preferenceService.setUserLoggedIn(false);
+        model.setLoggedIn(false);
+        presenter.loadUserData(model);
+    }
+
+    @Override
+    public void onGoCoffeePressed() {
+
+    }
+
+    @Override
+    public void onGoFavoritePressed() {
+
     }
 }

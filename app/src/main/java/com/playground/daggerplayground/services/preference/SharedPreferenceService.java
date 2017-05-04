@@ -28,4 +28,15 @@ public class SharedPreferenceService implements PreferenceService {
     public boolean isUserLoggedIn() {
         return sharedPreferences.getBoolean(USER_LOGGED_IN, false);
     }
+
+    @Override
+    public void setUserLoggedIn(boolean value) {
+        SharedPreferences.Editor editor = getSharedPrefEditor(sharedPreferences);
+        editor.putBoolean(USER_LOGGED_IN, value);
+        editor.commit();
+    }
+
+    private SharedPreferences.Editor getSharedPrefEditor(SharedPreferences sharedPref) {
+        return sharedPref.edit();
+    }
 }
