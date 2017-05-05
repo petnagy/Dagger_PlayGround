@@ -1,4 +1,11 @@
-package com.playground.daggerplayground.data;
+package com.playground.daggerplayground.data.coffee;
+
+import com.playground.daggerplayground.data.Coffee;
+import com.playground.daggerplayground.data.common.Drink;
+import com.playground.daggerplayground.data.common.Extra;
+import com.playground.daggerplayground.data.Ice;
+import com.playground.daggerplayground.data.common.Ingredient;
+import com.playground.daggerplayground.data.Milk;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -34,5 +41,10 @@ public class IceLongCoffee implements Drink {
             coffeeBuilder.append(ice.getMode());
         }
         return coffeeBuilder.toString();
+    }
+
+    @Override
+    public String getDrinkiName() {
+        return "Ice Long Coffee";
     }
 }

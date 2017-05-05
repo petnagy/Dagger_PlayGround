@@ -12,8 +12,6 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
 
     private MainActivityView view;
 
-    private MainActivityModel model;
-
     @Override
     public void attachView(View view) {
         this.view = (MainActivityView) view;
@@ -25,8 +23,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     }
 
     @Override
-    public void loadUserData(MainActivityModel model) {
-        this.model = model;
+    public void showModel(MainActivityModel model) {
         view.showModel(model);
     }
 }

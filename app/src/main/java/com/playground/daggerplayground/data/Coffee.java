@@ -1,5 +1,7 @@
 package com.playground.daggerplayground.data;
 
+import com.playground.daggerplayground.data.common.Ingredient;
+
 /**
  * Created by petnagy on 2017. 05. 02..
  */

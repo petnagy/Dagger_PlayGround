@@ -9,5 +9,5 @@ import com.playground.daggerplayground.pages.mainactivity.model.MainActivityMode
 
 public interface MainActivityPresenter extends Presenter {
 
-    void loadUserData(MainActivityModel model);
+    void showModel(MainActivityModel model);
 }

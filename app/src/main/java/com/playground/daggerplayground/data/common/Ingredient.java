@@ -1,4 +1,4 @@
-package com.playground.daggerplayground.data;
+package com.playground.daggerplayground.data.common;
 
 /**
  * Created by petnagy on 2017. 05. 02..

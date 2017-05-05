@@ -2,6 +2,7 @@ package com.playground.daggerplayground.common.view;
 
 import android.app.Activity;
 
+import com.playground.daggerplayground.pages.coffees.model.CoffeeActivityModel;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 
 /**

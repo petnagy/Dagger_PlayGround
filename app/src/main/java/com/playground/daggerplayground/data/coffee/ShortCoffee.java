@@ -1,4 +1,8 @@
-package com.playground.daggerplayground.data;
+package com.playground.daggerplayground.data.coffee;
+
+import com.playground.daggerplayground.data.Coffee;
+import com.playground.daggerplayground.data.common.Drink;
+import com.playground.daggerplayground.data.common.Ingredient;
 
 /**
  * Created by petnagy on 2017. 05. 02..
@@ -15,5 +19,10 @@ public class ShortCoffee implements Drink {
     @Override
     public String createDrink() {
         return coffee.getQuantity() + " " + coffee.getName();
+    }
+
+    @Override
+    public String getDrinkiName() {
+        return "Short Coffee";
     }
 }

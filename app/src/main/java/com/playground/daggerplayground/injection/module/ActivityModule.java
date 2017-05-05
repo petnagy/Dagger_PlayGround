@@ -3,18 +3,25 @@ package com.playground.daggerplayground.injection.module;
 import android.app.Activity;
 import android.content.Context;
 
-import com.playground.daggerplayground.data.Coffee;
-import com.playground.daggerplayground.data.LongCoffee;
-import com.playground.daggerplayground.data.Milk;
-import com.playground.daggerplayground.data.ShortCoffee;
-import com.playground.daggerplayground.data.Water;
+import com.playground.daggerplayground.data.coffee.IceLongCoffee;
+import com.playground.daggerplayground.data.coffee.LongCoffee;
+import com.playground.daggerplayground.data.coffee.ShortCoffee;
+import com.playground.daggerplayground.data.common.Drink;
 import com.playground.daggerplayground.injection.PerActivity;
+import com.playground.daggerplayground.pages.coffees.model.CoffeeActivityModel;
+import com.playground.daggerplayground.pages.coffees.presenter.CoffeeActivityPresenter;
+import com.playground.daggerplayground.pages.coffees.presenter.CoffeeActivityPresenterImpl;
+import com.playground.daggerplayground.pages.coffees.view.CoffeeActivityView;
+import com.playground.daggerplayground.pages.coffees.view.CoffeeActivityViewImpl;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenter;
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenterImpl;
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityViewImpl;
 import com.playground.daggerplayground.services.preference.PreferenceService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Named;
 
@@ -50,6 +57,7 @@ public class ActivityModule {
     }
 
     @Provides
+    @PerActivity
     MainActivityModel provideMainActivityModel(PreferenceService preferenceService) {
         MainActivityModel model = new MainActivityModel();
         model.setLoggedIn(preferenceService.isUserLoggedIn());
@@ -57,14 +65,33 @@ public class ActivityModule {
     }
 
     @Provides
+    @PerActivity
     MainActivityPresenter provideMainActivityPresenter() {
         return new MainActivityPresenterImpl();
     }
 
-//    @Provides
-//    @PerActivity
-//    MajorObject provideMajorObject() {
-//        return new MajorObject();
-//    }
+    @Provides
+    @PerActivity
+    CoffeeActivityView provideCoffeeActivityView() {
+        return new CoffeeActivityViewImpl();
+    }
+
+    @Provides
+    @PerActivity
+    CoffeeActivityPresenter provideCoffeeActivityPresenter() {
+        return new CoffeeActivityPresenterImpl();
+    }
+
+    @Provides
+    @PerActivity
+    CoffeeActivityModel provideCoffeeActivityModel(PreferenceService preferenceService,
+                                                   @Named("COFFEE_LIST") List<Drink> coffeeList,
+                                                   @Named("WITH_ICE") IceLongCoffee favoriteDrink) {
+        CoffeeActivityModel model = new CoffeeActivityModel();
+        model.setLoggedIn(preferenceService.isUserLoggedIn());
+        model.setCoffeeList(coffeeList);
+        model.setUserFavorite(favoriteDrink);
+        return model;
+    }
 
 }

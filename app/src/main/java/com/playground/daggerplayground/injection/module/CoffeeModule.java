@@ -2,11 +2,15 @@ package com.playground.daggerplayground.injection.module;
 
 import com.playground.daggerplayground.data.Coffee;
 import com.playground.daggerplayground.data.Ice;
-import com.playground.daggerplayground.data.IceLongCoffee;
-import com.playground.daggerplayground.data.LongCoffee;
+import com.playground.daggerplayground.data.coffee.IceLongCoffee;
+import com.playground.daggerplayground.data.coffee.LongCoffee;
 import com.playground.daggerplayground.data.Milk;
-import com.playground.daggerplayground.data.ShortCoffee;
+import com.playground.daggerplayground.data.coffee.ShortCoffee;
 import com.playground.daggerplayground.data.Water;
+import com.playground.daggerplayground.data.common.Drink;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Named;
 
@@ -43,5 +47,18 @@ public class CoffeeModule {
     @Named("WITHOUT_ICE")
     IceLongCoffee proviceIceLongCoffeeWithoutIce(@Named("BIG_COFFEE") Coffee coffee, @Named("SMALL_MILK") Milk milk) {
         return new IceLongCoffee(coffee, milk);
+    }
+
+    @Provides
+    @Named("COFFEE_LIST")
+    List<Drink> provideCoffeeList(ShortCoffee shortCoffee, LongCoffee longCoffee,
+                                  @Named("WITH_ICE") IceLongCoffee iceLongCoffeeWithIce,
+                                  @Named("WITHOUT_ICE") IceLongCoffee iceLongCoffeeWithoutIce) {
+        List<Drink> coffeeList = new ArrayList<>();
+        coffeeList.add(shortCoffee);
+        coffeeList.add(longCoffee);
+        coffeeList.add(iceLongCoffeeWithIce);
+        coffeeList.add(iceLongCoffeeWithoutIce);
+        return coffeeList;
     }
 }
