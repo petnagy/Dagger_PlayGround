@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.playground.daggerplayground.data.coffee.IceLongCoffee;
-import com.playground.daggerplayground.data.coffee.LongCoffee;
-import com.playground.daggerplayground.data.coffee.ShortCoffee;
 import com.playground.daggerplayground.data.common.Drink;
 import com.playground.daggerplayground.injection.PerActivity;
 import com.playground.daggerplayground.pages.coffees.model.CoffeeActivityModel;
@@ -18,9 +16,12 @@ import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivity
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenterImpl;
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityViewImpl;
+import com.playground.daggerplayground.pages.showcase.presenter.ShowCasePresenter;
+import com.playground.daggerplayground.pages.showcase.presenter.ShowCasePresenterImpl;
+import com.playground.daggerplayground.pages.showcase.view.ShowCaseView;
+import com.playground.daggerplayground.pages.showcase.view.ShowCaseViewImpl;
 import com.playground.daggerplayground.services.preference.PreferenceService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Named;
@@ -90,8 +91,18 @@ public class ActivityModule {
         CoffeeActivityModel model = new CoffeeActivityModel();
         model.setLoggedIn(preferenceService.isUserLoggedIn());
         model.setCoffeeList(coffeeList);
-        model.setUserFavorite(favoriteDrink);
         return model;
     }
 
+    @Provides
+    @PerActivity
+    ShowCasePresenter provideShowCasePresenter() {
+        return new ShowCasePresenterImpl();
+    }
+
+    @Provides
+    @PerActivity
+    ShowCaseView provideShowCaseView() {
+        return new ShowCaseViewImpl();
+    }
 }

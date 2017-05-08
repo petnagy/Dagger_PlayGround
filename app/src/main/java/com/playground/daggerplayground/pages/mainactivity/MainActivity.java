@@ -14,6 +14,7 @@ import com.playground.daggerplayground.pages.mainactivity.model.MainActivityMode
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenter;
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
 import com.playground.daggerplayground.pages.mainactivity.view.OnUserActionCallback;
+import com.playground.daggerplayground.pages.showcase.ShowCaseActivity;
 import com.playground.daggerplayground.services.preference.PreferenceService;
 
 import javax.inject.Inject;
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity implements OnUserActionCallb
     }
 
     @Override
-    public void onGoFavoritePressed() {
-
+    public void onGoShowCase() {
+        Intent launchIntent = ShowCaseActivity.launchActivity(this);
+        startActivity(launchIntent);
     }
 }

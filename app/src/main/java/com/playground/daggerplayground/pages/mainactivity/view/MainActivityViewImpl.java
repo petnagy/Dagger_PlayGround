@@ -34,7 +34,7 @@ public class MainActivityViewImpl implements MainActivityView {
     public void onCreate(Activity activity) {
         callback = (OnUserActionCallback) activity;
         btnShowCoffee = (Button) activity.findViewById(R.id.btn_coffee);
-        btnShowFavorite = (Button) activity.findViewById(R.id.btn_favorite);
+        btnShowFavorite = (Button) activity.findViewById(R.id.btn_showcase);
         btnLogin = (Button) activity.findViewById(R.id.btn_login);
         btnLogout = (Button) activity.findViewById(R.id.btn_logout);
         userLoginState = (TextView) activity.findViewById(R.id.user_login_state_text);
@@ -49,7 +49,7 @@ public class MainActivityViewImpl implements MainActivityView {
         btnShowFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callback.onGoFavoritePressed();
+                callback.onGoShowCase();
             }
         });
 

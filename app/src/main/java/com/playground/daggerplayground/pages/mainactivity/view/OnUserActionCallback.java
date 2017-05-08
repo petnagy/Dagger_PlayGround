@@ -12,6 +12,5 @@ public interface OnUserActionCallback {
 
     void onGoCoffeePressed();
 
-    void onGoFavoritePressed();
-
+    void onGoShowCase();
 }

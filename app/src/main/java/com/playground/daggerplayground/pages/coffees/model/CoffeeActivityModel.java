@@ -14,8 +14,6 @@ public class CoffeeActivityModel {
 
     private List<Drink> coffeeList;
 
-    private Drink userFavorite;
-
     public boolean isLoggedIn() {
         return isLoggedIn;
     }
@@ -30,13 +28,5 @@ public class CoffeeActivityModel {
 
     public void setCoffeeList(List<Drink> coffeeList) {
         this.coffeeList = coffeeList;
-    }
-
-    public Drink getUserFavorite() {
-        return userFavorite;
-    }
-
-    public void setUserFavorite(Drink userFavorite) {
-        this.userFavorite = userFavorite;
     }
 }

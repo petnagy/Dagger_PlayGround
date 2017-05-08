@@ -7,6 +7,7 @@ import com.playground.daggerplayground.injection.module.ActivityModule;
 import com.playground.daggerplayground.injection.module.CoffeeModule;
 import com.playground.daggerplayground.injection.module.ExtraModule;
 import com.playground.daggerplayground.injection.module.IngradientModule;
+import com.playground.daggerplayground.pages.showcase.ShowCaseActivity;
 
 import dagger.Component;
 
@@ -21,4 +22,6 @@ public interface ActivityComponent {
     void inject(MainActivity activity);
 
     void inject(CoffeesActivity activity);
+
+    void inject(ShowCaseActivity activity);
 }

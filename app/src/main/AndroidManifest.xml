@@ -19,6 +19,8 @@
         </activity>
 
         <activity android:name=".pages.coffees.CoffeesActivity" />
+
+        <activity android:name=".pages.showcase.ShowCaseActivity" />
     </application>
 
 </manifest>
