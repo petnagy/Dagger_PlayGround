@@ -16,16 +16,19 @@ public class ShowCaseViewImpl implements ShowCaseView {
     private String TAG = ShowCaseViewImpl.class.getSimpleName();
 
     private TextView txtModelFieldInjectedProp;
+    private TextView txtModelMethodInjectedCoffee;
 
     @Override
     public void onCreate(Activity activity) {
         txtModelFieldInjectedProp = (TextView) activity.findViewById(R.id.txt_common_field_injected_model_prop);
+        txtModelMethodInjectedCoffee = (TextView) activity.findViewById(R.id.txt_coffee_with_method_injection);
     }
 
     @Override
     public void showModel(ShowCaseModel model) {
         Log.d(TAG, model.getContextValue());
         txtModelFieldInjectedProp.setText(model.getContextValue());
+        txtModelMethodInjectedCoffee.setText(model.getMyCoffee());
     }
 
 }
