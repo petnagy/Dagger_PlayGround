@@ -9,6 +9,7 @@ import com.playground.daggerplayground.R;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 
 /**
+ * Default implementation of MainActiviy.
  * Created by petnagy on 2017. 05. 03..
  */
 

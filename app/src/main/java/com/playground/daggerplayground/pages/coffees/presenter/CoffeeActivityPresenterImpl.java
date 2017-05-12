@@ -5,6 +5,7 @@ import com.playground.daggerplayground.pages.coffees.model.CoffeeActivityModel;
 import com.playground.daggerplayground.pages.coffees.view.CoffeeActivityView;
 
 /**
+ * Default implementation of CoffeeActivityPresenter.
  * Created by petnagy on 2017. 05. 05..
  */
 

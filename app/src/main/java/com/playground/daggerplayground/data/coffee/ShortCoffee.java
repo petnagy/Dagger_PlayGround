@@ -5,6 +5,7 @@ import com.playground.daggerplayground.data.common.Drink;
 import com.playground.daggerplayground.data.common.Ingredient;
 
 /**
+ * Shot Coffee implementation.
  * Created by petnagy on 2017. 05. 02..
  */
 

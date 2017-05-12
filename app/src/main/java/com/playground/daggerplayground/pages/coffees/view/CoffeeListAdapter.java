@@ -12,6 +12,7 @@ import com.playground.daggerplayground.data.common.Drink;
 import java.util.List;
 
 /**
+ * Adapter for CoffeeList.
  * Created by petnagy on 2017. 05. 06..
  */
 

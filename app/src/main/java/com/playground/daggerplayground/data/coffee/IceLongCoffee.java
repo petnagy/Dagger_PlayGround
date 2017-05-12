@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Ice Long Coffee implementation.
  * Created by petnagy on 2017. 05. 02..
  */
 

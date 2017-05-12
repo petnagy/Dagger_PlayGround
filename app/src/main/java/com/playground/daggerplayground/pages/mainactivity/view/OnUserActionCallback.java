@@ -1,6 +1,7 @@
 package com.playground.daggerplayground.pages.mainactivity.view;
 
 /**
+ * User Action Callback.
  * Created by petnagy on 2017. 05. 04..
  */
 

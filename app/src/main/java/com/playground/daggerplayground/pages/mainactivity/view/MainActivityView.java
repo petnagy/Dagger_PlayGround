@@ -4,6 +4,7 @@ import com.playground.daggerplayground.common.view.View;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 
 /**
+ * view of MainActivity.
  * Created by petnagy on 2017. 05. 03..
  */
 

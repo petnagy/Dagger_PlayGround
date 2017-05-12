@@ -6,6 +6,7 @@ import com.playground.daggerplayground.pages.coffees.model.CoffeeActivityModel;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 
 /**
+ * General View interface.
  * Created by petnagy on 2017. 05. 03..
  */
 

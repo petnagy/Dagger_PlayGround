@@ -1,6 +1,7 @@
 package com.playground.daggerplayground.services.preference;
 
 /**
+ * Preference Service.
  * Created by petnagy on 2017. 04. 30..
  */
 

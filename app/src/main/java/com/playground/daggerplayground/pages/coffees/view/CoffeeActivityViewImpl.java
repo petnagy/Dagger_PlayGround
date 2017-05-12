@@ -9,9 +9,8 @@ import android.widget.TextView;
 import com.playground.daggerplayground.R;
 import com.playground.daggerplayground.pages.coffees.model.CoffeeActivityModel;
 
-import javax.inject.Inject;
-
 /**
+ * Default implementation of CoffeeActivityView.
  * Created by petnagy on 2017. 05. 05..
  */
 

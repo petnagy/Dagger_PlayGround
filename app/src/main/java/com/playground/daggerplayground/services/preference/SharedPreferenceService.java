@@ -8,6 +8,7 @@ import com.playground.daggerplayground.injection.ApplicationContext;
 import javax.inject.Inject;
 
 /**
+ * SharedPreference implementation of PreferenceService.
  * Created by petnagy on 2017. 04. 30..
  */
 

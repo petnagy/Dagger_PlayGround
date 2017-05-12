@@ -4,6 +4,7 @@ import com.playground.daggerplayground.common.presenter.Presenter;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 
 /**
+ * Presenter of the MainActivity.
  * Created by petnagy on 2017. 05. 03..
  */
 

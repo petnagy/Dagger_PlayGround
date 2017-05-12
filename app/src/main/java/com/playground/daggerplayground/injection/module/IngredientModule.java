@@ -10,10 +10,11 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Ingredient Module for Ingredients.
  * Created by petnagy on 2017. 05. 02..
  */
 @Module
-public class IngradientModule {
+public class IngredientModule {
 
     @Provides
     @Named("SMALL_COFFEE")

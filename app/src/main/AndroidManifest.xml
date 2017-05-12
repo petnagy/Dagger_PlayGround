@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".pages.coffees.CoffeesActivity" />
+        <activity android:name=".pages.coffees.CoffeeActivity" />
 
         <activity android:name=".pages.showcase.ShowCaseActivity" />
     </application>

@@ -8,6 +8,7 @@ import com.playground.daggerplayground.injection.component.DaggerApplicationComp
 import com.playground.daggerplayground.injection.module.ApplicationModule;
 
 /**
+ * Application class for DaggerPlayGround.
  * Created by petnagy on 2017. 05. 01..
  */
 

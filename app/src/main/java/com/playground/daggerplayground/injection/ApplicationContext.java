@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import javax.inject.Qualifier;
 
 /**
+ * Application context annotation.
  * Created by petnagy on 2017. 04. 30..
  */
 @Qualifier

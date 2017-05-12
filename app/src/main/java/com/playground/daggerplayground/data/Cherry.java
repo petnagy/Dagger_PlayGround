@@ -3,6 +3,7 @@ package com.playground.daggerplayground.data;
 import com.playground.daggerplayground.data.common.Extra;
 
 /**
+ * Extra Cherry implementation.
  * Created by petnagy on 2017. 05. 02..
  */
 

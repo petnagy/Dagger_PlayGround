@@ -18,6 +18,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Coffee module.
  * Created by petnagy on 2017. 05. 02..
  */
 @Module

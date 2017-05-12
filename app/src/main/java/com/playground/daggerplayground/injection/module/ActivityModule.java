@@ -30,6 +30,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Activity level Module.
  * Created by petnagy on 2017. 04. 30..
  */
 @Module

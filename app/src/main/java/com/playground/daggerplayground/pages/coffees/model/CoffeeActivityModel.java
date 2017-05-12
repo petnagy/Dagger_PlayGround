@@ -5,6 +5,7 @@ import com.playground.daggerplayground.data.common.Drink;
 import java.util.List;
 
 /**
+ * Model for CoffeeActivity.
  * Created by petnagy on 2017. 05. 05..
  */
 

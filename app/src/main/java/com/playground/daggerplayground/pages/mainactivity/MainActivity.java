@@ -9,7 +9,7 @@ import com.playground.daggerplayground.R;
 import com.playground.daggerplayground.injection.component.ActivityComponent;
 import com.playground.daggerplayground.injection.component.DaggerActivityComponent;
 import com.playground.daggerplayground.injection.module.ActivityModule;
-import com.playground.daggerplayground.pages.coffees.CoffeesActivity;
+import com.playground.daggerplayground.pages.coffees.CoffeeActivity;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenter;
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
@@ -19,6 +19,9 @@ import com.playground.daggerplayground.services.preference.PreferenceService;
 
 import javax.inject.Inject;
 
+/**
+ * MainActivity.
+ */
 public class MainActivity extends AppCompatActivity implements OnUserActionCallback {
 
     @Inject
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements OnUserActionCallb
 
     @Override
     public void onGoCoffeePressed() {
-        Intent coffeeLaunchIntent = CoffeesActivity.launchCoffeeActivity(this);
+        Intent coffeeLaunchIntent = CoffeeActivity.launchCoffeeActivity(this);
         startActivity(coffeeLaunchIntent);
     }
 

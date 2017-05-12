@@ -18,10 +18,10 @@ import com.playground.daggerplayground.pages.coffees.view.CoffeeActivityView;
 import javax.inject.Inject;
 
 /**
+ * CoffeeActivity with list of coffees.
  * Created by petnagy on 2017. 05. 04..
  */
-
-public class CoffeesActivity  extends AppCompatActivity {
+public class CoffeeActivity extends AppCompatActivity {
 
     @Inject
     CoffeeActivityView view;
@@ -60,6 +60,6 @@ public class CoffeesActivity  extends AppCompatActivity {
     }
 
     public static Intent launchCoffeeActivity(Context context) {
-        return new Intent(context, CoffeesActivity.class);
+        return new Intent(context, CoffeeActivity.class);
     }
 }

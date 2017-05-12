@@ -4,6 +4,7 @@ import com.playground.daggerplayground.common.view.View;
 import com.playground.daggerplayground.pages.coffees.model.CoffeeActivityModel;
 
 /**
+ * View of Coffee Activity.
  * Created by petnagy on 2017. 05. 05..
  */
 

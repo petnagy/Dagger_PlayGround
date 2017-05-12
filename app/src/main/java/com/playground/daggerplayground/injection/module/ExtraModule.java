@@ -8,6 +8,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Extra Module for Extras.
  * Created by petnagy on 2017. 05. 02..
  */
 @Module

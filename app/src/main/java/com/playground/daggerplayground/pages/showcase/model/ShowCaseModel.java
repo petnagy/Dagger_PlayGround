@@ -8,6 +8,7 @@ import com.playground.daggerplayground.data.coffee.LongCoffee;
 import javax.inject.Inject;
 
 /**
+ * Model of ShowCaseActivity.
  * Created by petnagy on 2017. 05. 08..
  */
 

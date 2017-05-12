@@ -19,6 +19,7 @@ import com.playground.daggerplayground.pages.showcase.view.ShowCaseView;
 import javax.inject.Inject;
 
 /**
+ * Activity where there are contructor, method and field injection.
  * Created by petnagy on 2017. 05. 08..
  */
 

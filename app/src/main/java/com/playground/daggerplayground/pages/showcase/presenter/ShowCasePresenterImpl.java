@@ -5,6 +5,7 @@ import com.playground.daggerplayground.pages.showcase.model.ShowCaseModel;
 import com.playground.daggerplayground.pages.showcase.view.ShowCaseView;
 
 /**
+ * Default implementation of ShowCasePresenter.
  * Created by petnagy on 2017. 05. 08..
  */
 

@@ -5,6 +5,7 @@ import android.util.Log;
 import javax.inject.Inject;
 
 /**
+ * Watcher object, it will be used for method injection.
  * Created by petnagy on 2017. 05. 09..
  */
 

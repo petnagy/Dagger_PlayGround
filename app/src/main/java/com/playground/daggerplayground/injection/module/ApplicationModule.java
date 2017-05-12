@@ -13,6 +13,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Application level component.
  * Created by petnagy on 2017. 04. 30..
  */
 @Module

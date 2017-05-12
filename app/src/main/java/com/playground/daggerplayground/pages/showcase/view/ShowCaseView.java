@@ -5,6 +5,7 @@ import com.playground.daggerplayground.common.view.View;
 import com.playground.daggerplayground.pages.showcase.model.ShowCaseModel;
 
 /**
+ * View of ShowCaseActivity.
  * Created by petnagy on 2017. 05. 08..
  */
 

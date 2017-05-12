@@ -8,6 +8,7 @@ import com.playground.daggerplayground.R;
 import com.playground.daggerplayground.pages.showcase.model.ShowCaseModel;
 
 /**
+ * Default implementation of ShowCaseView.
  * Created by petnagy on 2017. 05. 08..
  */
 

@@ -5,6 +5,7 @@ import com.playground.daggerplayground.pages.mainactivity.model.MainActivityMode
 import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
 
 /**
+ * Default implementation of MainActivityPresenter.
  * Created by petnagy on 2017. 05. 03..
  */
 

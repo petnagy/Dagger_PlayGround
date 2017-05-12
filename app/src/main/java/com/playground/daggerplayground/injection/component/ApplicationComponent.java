@@ -13,6 +13,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
+ * Application level component.
  * Created by petnagy on 2017. 04. 30..
  */
 @Singleton
