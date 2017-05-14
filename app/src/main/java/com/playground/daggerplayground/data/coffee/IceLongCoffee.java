@@ -45,7 +45,7 @@ public class IceLongCoffee implements Drink {
     }
 
     @Override
-    public String getDrinkiName() {
+    public String getDrinkName() {
         return "Ice Long Coffee";
     }
 }

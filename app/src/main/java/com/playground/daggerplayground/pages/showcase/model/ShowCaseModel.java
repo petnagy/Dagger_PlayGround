@@ -4,8 +4,12 @@ import android.content.Context;
 import android.util.Log;
 
 import com.playground.daggerplayground.data.coffee.LongCoffee;
+import com.playground.daggerplayground.data.coffee.ShortCoffee;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
+
+import dagger.Lazy;
 
 /**
  * Model of ShowCaseActivity.
@@ -19,7 +23,17 @@ public class ShowCaseModel {
     @Inject
     Context context;
 
+    @Inject
+    Lazy<ShortCoffee> lazyShortCoffee;
+
+    @Inject
+    Provider<ShortCoffee> providerShortCoffee;
+
     LongCoffee longCoffee;
+
+    ShortCoffee shortCoffee;
+
+    ShortCoffee providedShortCoffee;
 
     @Inject
     public ShowCaseModel() {
@@ -31,7 +45,7 @@ public class ShowCaseModel {
     }
 
     public String getMyCoffee() {
-        return longCoffee.getDrinkiName();
+        return longCoffee.getDrinkName();
     }
 
     @Inject
@@ -44,5 +58,25 @@ public class ShowCaseModel {
     public void addLongCoffee(LongCoffee longCoffee) {
         Log.d(TAG, "Method injection is running with coffee");
         this.longCoffee = longCoffee;
+    }
+
+    public String getLazyShortCoffee() {
+        return shortCoffee == null ? "null" : shortCoffee.toString();
+    }
+
+    public String getLazyObject() {
+        return lazyShortCoffee.toString();
+    }
+
+    public void callLazyShortCoffeeGet() {
+        shortCoffee = lazyShortCoffee.get();
+    }
+
+    public void callProviderShortCoffee() {
+        providedShortCoffee = providerShortCoffee.get();
+    }
+
+    public String getProvidedObj() {
+        return providedShortCoffee == null ? "null" : providedShortCoffee.toString();
     }
 }

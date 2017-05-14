@@ -23,7 +23,7 @@ public class ShortCoffee implements Drink {
     }
 
     @Override
-    public String getDrinkiName() {
+    public String getDrinkName() {
         return "Short Coffee";
     }
 }

@@ -9,6 +9,6 @@ public interface Drink {
 
     String createDrink();
 
-    String getDrinkiName();
+    String getDrinkName();
 
 }

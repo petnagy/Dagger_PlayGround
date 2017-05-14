@@ -43,7 +43,7 @@ public class CoffeeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (holder instanceof CoffeeItemViewHolder) {
             Drink drink = coffeeList.get(position - 1);
             CoffeeItemViewHolder item = (CoffeeItemViewHolder) holder;
-            item.coffeeName.setText(drink.getDrinkiName());
+            item.coffeeName.setText(drink.getDrinkName());
             item.coffeeDetails.setText(drink.createDrink());
         } else {
             CoffeeHeaderViewHolder header = (CoffeeHeaderViewHolder) holder;

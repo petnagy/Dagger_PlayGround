@@ -14,6 +14,7 @@ import com.playground.daggerplayground.injection.component.DaggerActivityCompone
 import com.playground.daggerplayground.injection.module.ActivityModule;
 import com.playground.daggerplayground.pages.showcase.model.ShowCaseModel;
 import com.playground.daggerplayground.pages.showcase.presenter.ShowCasePresenter;
+import com.playground.daggerplayground.pages.showcase.view.ShowCaseCallback;
 import com.playground.daggerplayground.pages.showcase.view.ShowCaseView;
 
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ import javax.inject.Inject;
  * Created by petnagy on 2017. 05. 08..
  */
 
-public class ShowCaseActivity extends AppCompatActivity {
+public class ShowCaseActivity extends AppCompatActivity implements ShowCaseCallback {
 
     private static final String TAG = ShowCaseActivity.class.getSimpleName();
 
@@ -68,4 +69,15 @@ public class ShowCaseActivity extends AppCompatActivity {
         return new Intent(context, ShowCaseActivity.class);
     }
 
+    @Override
+    public void onGetLazyInjectedObject() {
+        model.callLazyShortCoffeeGet();
+        presenter.showModel(model);
+    }
+
+    @Override
+    public void onGetProvider() {
+        model.callProviderShortCoffee();
+        presenter.showModel(model);
+    }
 }
