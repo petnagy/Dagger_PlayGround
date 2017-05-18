@@ -76,4 +76,4 @@ public class OneActivtiy extends Activity {
 }
 ```
 
-Be careful because Dagger cannot instantiate any private field (because it will nto use reflection).
+Be careful because Dagger cannot instantiate any private field (because it will not use reflection).
