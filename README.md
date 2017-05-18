@@ -15,92 +15,65 @@ dependencies {
 }
 ```
 
-## Working of Dagger
+## About this projecct
 
-First of all we need to declare the object graphs. It is easy we need to create modules and components. A module will contain the real object how we would like to create any object. In component we should enumerate the using modules and where we will inject the component. When we run our code Dagger (with annotation processor) will generate the code which will be used in our application. Your are able to check and debug it.
+The purpose of this project to create a sandbox where other developers could play with Dagger and study some usecases.
+If you are not familiar with Dagger you can find lot of good bogs and sites where you can study how to use Dagger2 library.
 
-## Module
+[Codepath](https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2)
+[Official Dagger documentation](https://google.github.io/dagger/users-guide.html)
 
-When we start to use a Module we need to annotate it with ```@Module``` annotation.
-We can use local and global wariables in our modules.
+## Dependency Injection
+
+There are 3 major kind of dependency injection:
+- Contructor Injection
+- Field Injection
+- Method Injection
+
+## Constructor Injection
+
+It is the most powerfull way of dependency injection. If you have a Foo class and you want to use another object Boo in it than you can use dependency injection to create the field object. You can set the Boo object in the constructor. It is really clear and you can find easily the dependency.
 
 ```
-@Module
-public class ActivityModule {
-
-    private Activity activity;
-
-    public ActivityModule(Activity activity) {
-        this.activity = activity;
+public class Foo {
+    
+    private Boo boo;
+    
+    public Foo(Boo boo) {
+        this.boo = boo;
     }
-```
-When we create the activity module it will have an instance of activtiy. We can use it later like an activity context.
-
-If we want to provide any object, we need to annotate the method with ```@Provides```. If we forget it than we will get any error message after all. 
-
-example:
-```
-@Provides
-    Context provideContext() {
-        return activity;
-    }
-```
-
-## Component
-
-we can enumerate the modules what we want to use in the components.
-
-```
-@Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class, IngredientModule.class,
-        CoffeeModule.class, ExtraModule.class})
-```
-
-And we are able to add some dependencies between the object graph with use of dependencies. However dependencies is an optional field.
-```
-@Component(modules = ApplicationModule.class)
-public interface ApplicationComponent {
-```
-
-Component will be used in the injection. So we need it use it where we will inject the object graph. And here can we enumerate that methods which will be exposed from any module which is used by component.
-
-## Level of Injection
-
-In most cases we need to declare one Application level injection. It will be injected when our Application will be instantiated. Manny times we can use an application context, like at the case of intantiating SharedPreference or SQLite database, etc..
-If we want to use Application or Application context in any object we must put those instatiation of those objects into the ApplicationModule.
-We can use another level like activity level (or scope). When Activity component available in our activities.
-Or we are able to create own scope like user scope when we would like to create objects which should be instanciated until user is looged in.
-
-## @Singleton annotation
-
-If we annotate a provide method with ```@Singleton``` than it will be a Singleton object. It will be instantiated only once during the running of our application.
-
-## Inject ApplicationComponent
-
-If we want to inject application component:
-
-```
-public class DaggerPlayGroundApplication extends Application {
-
-    protected ApplicationComponent applicationComponent;
-
-    public static DaggerPlayGroundApplication get(Context context) {
-        return (DaggerPlayGroundApplication) context.getApplicationContext();
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        applicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this))
-                .build();
-        applicationComponent.inject(this);
-    }
-
-    public ApplicationComponent getComponent() {
-        return applicationComponent;
-    }
+    
 }
 ```
 
-DaggerApplicationComponent is a generated class.
+In this case after the constructor you can use the boo object. If you do not use Dagger than you have to create a Boo object when you create the Foo like here:
+```
+Foo foo = new Foo(new Boo());
+```
+
+It is more easy with Dagger. You have to add the instantiation in a Module.
+
+```
+@Provides
+Foo providesFoo(Boo boo) {
+    return new Foo(boo);
+}
+
+@Provides
+Boo providesBoo() {
+    return new Boo();
+}
+```
+
+And where you use Dagger injection (e.g. your Acttivity) you can use ```@Inject``` annotation.
+
+```
+public class OneActivtiy extends Activity {
+
+    @Inject
+    Foo foo;
+
+}
+```
+
+Be careful because Dagger cannot instantiate any private field (because it will nto use reflection).
