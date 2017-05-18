@@ -20,7 +20,7 @@ dependencies {
 The purpose of this project to create a sandbox where other developers could play with Dagger and study some usecases.
 If you are not familiar with Dagger you can find lot of good bogs and sites where you can study how to use Dagger2 library.
 
-[Codepath](https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2)
+[Codepath](https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2),
 [Official Dagger documentation](https://google.github.io/dagger/users-guide.html)
 
 ## Dependency Injection
