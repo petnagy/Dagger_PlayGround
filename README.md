@@ -77,3 +77,61 @@ public class OneActivtiy extends Activity {
 ```
 
 Be careful because Dagger cannot instantiate any private field (because it will not use reflection).
+
+## Field injection
+
+Filed injection is a solution to inject an object into the injectable class with annotating the field with ```@Inject```.
+It seems easy however there are more problems.
+
+1. The dependency is hidden. (with Constructor injection you can see the dependency)
+2. We will not know when will be injected the field. After the class was constructed but we will not know exactly when.
+
+You can see an example if you have a look how we use the dependency injection in an Activity.
+
+If you want to use in other class you must do the next:
+
+Use ```@Inject``` annotation to the injected class.
+```
+public class Foo {
+    
+    @Inject
+    public Foo() {...}
+
+}
+```
+And do not use any ```@Provides``` method in your module.
+For example look ShowCaseModel class.
+
+## Method injection
+
+We can annotate with ```@Inject``` any setter method. And it will be called after the constructor was called.
+
+Example:
+```
+public class Watcher {
+
+    @Inject
+    public Watcher() {...}
+
+    public void watch(Foo foo) {
+        Log.d("Method Injection", "It is a method Injection");
+    }
+}
+```
+
+```
+public class Foo {
+
+    @Inject
+    public Foo() {...}
+    
+    @Inject
+    public void addWatcher(Watcher watcher) {
+        watcher.watch(this);
+    }
+
+}
+```
+
+We must annotate both constructor with @Inject. And there is no any @Provides method in any module for Watcher object.
+Have a look Watcher.class in the project.
