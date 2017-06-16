@@ -7,17 +7,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.playground.daggerplayground.DaggerPlayGroundApplication;
 import com.playground.daggerplayground.R;
-import com.playground.daggerplayground.injection.component.ActivityComponent;
-import com.playground.daggerplayground.injection.component.DaggerActivityComponent;
-import com.playground.daggerplayground.injection.module.ActivityModule;
 import com.playground.daggerplayground.pages.showcase.model.ShowCaseModel;
 import com.playground.daggerplayground.pages.showcase.presenter.ShowCasePresenter;
 import com.playground.daggerplayground.pages.showcase.view.ShowCaseCallback;
 import com.playground.daggerplayground.pages.showcase.view.ShowCaseView;
 
 import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
 
 /**
  * Activity where there are contructor, method and field injection.
@@ -39,13 +37,9 @@ public class ShowCaseActivity extends AppCompatActivity implements ShowCaseCallb
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_case_activity_layout);
-        ActivityComponent activityComponent= DaggerActivityComponent.builder()
-                .activityModule(new ActivityModule(this))
-                .applicationComponent(DaggerPlayGroundApplication.get(this).getComponent())
-                .build();
-        activityComponent.inject(this);
     }
 
     @Override

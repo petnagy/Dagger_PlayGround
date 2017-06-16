@@ -1,14 +1,10 @@
 package com.playground.daggerplayground.pages.mainactivity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.playground.daggerplayground.DaggerPlayGroundApplication;
 import com.playground.daggerplayground.R;
-import com.playground.daggerplayground.injection.component.ActivityComponent;
-import com.playground.daggerplayground.injection.component.DaggerActivityComponent;
-import com.playground.daggerplayground.injection.module.ActivityModule;
 import com.playground.daggerplayground.pages.coffees.CoffeeActivity;
 import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
 import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenter;
@@ -18,6 +14,8 @@ import com.playground.daggerplayground.pages.showcase.ShowCaseActivity;
 import com.playground.daggerplayground.services.preference.PreferenceService;
 
 import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
 
 /**
  * MainActivity.
@@ -38,14 +36,9 @@ public class MainActivity extends AppCompatActivity implements OnUserActionCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ActivityComponent activityComponent= DaggerActivityComponent.builder()
-                .activityModule(new ActivityModule(this))
-                .applicationComponent(DaggerPlayGroundApplication.get(this).getComponent())
-                .build();
-        activityComponent.inject(this);
     }
 
     @Override
