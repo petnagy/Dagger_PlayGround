@@ -3,12 +3,14 @@ package com.playground.daggerplayground.injection.module;
 import android.app.Application;
 import android.content.Context;
 
+import com.playground.daggerplayground.DaggerPlayGroundApplication;
 import com.playground.daggerplayground.injection.ApplicationContext;
 import com.playground.daggerplayground.services.preference.PreferenceService;
 import com.playground.daggerplayground.services.preference.SharedPreferenceService;
 
 import javax.inject.Singleton;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 
@@ -17,28 +19,20 @@ import dagger.Provides;
  * Created by petnagy on 2017. 04. 30..
  */
 @Module
-public class ApplicationModule {
+public abstract class ApplicationModule {
 
-    private final Application application;
-
-    public ApplicationModule(Application application) {
-        this.application = application;
-    }
+    @Binds
+    public abstract Application application(DaggerPlayGroundApplication application);
 
     @Provides
     @ApplicationContext
-    Context provideContext() {
-        return application;
-    }
-
-    @Provides
-    Application provideApplication() {
-        return application;
+    public static Context provideContext(DaggerPlayGroundApplication application) {
+        return application.getApplicationContext();
     }
 
     @Singleton
     @Provides
-    PreferenceService provideSharedPreference(@ApplicationContext Context context) {
+    public static PreferenceService provideSharedPreference(@ApplicationContext Context context) {
         return new SharedPreferenceService(context);
     }
 }

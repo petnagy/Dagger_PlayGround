@@ -16,11 +16,12 @@ import com.playground.daggerplayground.services.preference.PreferenceService;
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
+import dagger.android.support.DaggerAppCompatActivity;
 
 /**
  * MainActivity.
  */
-public class MainActivity extends AppCompatActivity implements OnUserActionCallback {
+public class MainActivity extends DaggerAppCompatActivity implements OnUserActionCallback {
 
     @Inject
     MainActivityView view;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements OnUserActionCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

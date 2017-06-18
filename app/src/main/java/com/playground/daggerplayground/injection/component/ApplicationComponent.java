@@ -26,6 +26,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
         CoffeeActivityModule.class, ShowCaseActivityModule.class})
 public interface ApplicationComponent extends AndroidInjector<DaggerPlayGroundApplication> {
 
+    @Component.Builder
+    abstract class Builder extends AndroidInjector.Builder<DaggerPlayGroundApplication> {
+    }
+
     @ApplicationContext
     Context getContext();
 

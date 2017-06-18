@@ -14,12 +14,13 @@ import com.playground.daggerplayground.pages.coffees.view.CoffeeActivityView;
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
+import dagger.android.support.DaggerAppCompatActivity;
 
 /**
  * CoffeeActivity with list of coffees.
  * Created by petnagy on 2017. 05. 04..
  */
-public class CoffeeActivity extends AppCompatActivity {
+public class CoffeeActivity extends DaggerAppCompatActivity {
 
     @Inject
     CoffeeActivityView view;
@@ -32,7 +33,6 @@ public class CoffeeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coffe_activity_layout);
     }
