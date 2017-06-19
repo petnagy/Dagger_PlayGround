@@ -22,17 +22,17 @@ import dagger.Provides;
 public abstract class ApplicationModule {
 
     @Binds
-    public abstract Application application(DaggerPlayGroundApplication application);
+    abstract Application application(DaggerPlayGroundApplication application);
 
     @Provides
     @ApplicationContext
-    public static Context provideContext(DaggerPlayGroundApplication application) {
+    static Context provideContext(DaggerPlayGroundApplication application) {
         return application.getApplicationContext();
     }
 
     @Singleton
     @Provides
-    public static PreferenceService provideSharedPreference(@ApplicationContext Context context) {
+    static PreferenceService provideSharedPreference(@ApplicationContext Context context) {
         return new SharedPreferenceService(context);
     }
 }

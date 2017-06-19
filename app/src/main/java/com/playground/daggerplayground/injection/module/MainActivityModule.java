@@ -1,28 +1,42 @@
 package com.playground.daggerplayground.injection.module;
 
-import android.app.Activity;
+import com.playground.daggerplayground.injection.PerActivity;
+import com.playground.daggerplayground.pages.mainactivity.model.MainActivityModel;
+import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenter;
+import com.playground.daggerplayground.pages.mainactivity.presenter.MainActivityPresenterImpl;
+import com.playground.daggerplayground.pages.mainactivity.view.MainActivityView;
+import com.playground.daggerplayground.pages.mainactivity.view.MainActivityViewImpl;
+import com.playground.daggerplayground.services.preference.PreferenceService;
 
-import com.playground.daggerplayground.injection.component.MainActivitySubcomponent;
-import com.playground.daggerplayground.pages.mainactivity.MainActivity;
-
-import dagger.Binds;
 import dagger.Module;
-import dagger.android.ActivityKey;
-import dagger.android.AndroidInjector;
-import dagger.multibindings.IntoMap;
+import dagger.Provides;
 
 /**
  * Dagger Module for MainActivity.
  * Created by petnagy on 2017. 06. 16..
  */
-@Module(subcomponents = MainActivitySubcomponent.class)
-public abstract class MainActivityModule {
+@Module
+public class MainActivityModule {
 
-    @Binds
-    @IntoMap
-    @ActivityKey(MainActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity>
-    bindMainActivityInjectorFactory(MainActivitySubcomponent.Builder builder);
+    @Provides
+    @PerActivity
+    MainActivityView provideMainActivityView() {
+        return new MainActivityViewImpl();
+    }
+
+    @Provides
+    @PerActivity
+    MainActivityModel provideMainActivityModel(PreferenceService preferenceService) {
+        MainActivityModel model = new MainActivityModel();
+        model.setLoggedIn(preferenceService.isUserLoggedIn());
+        return model;
+    }
+
+    @Provides
+    @PerActivity
+    MainActivityPresenter provideMainActivityPresenter() {
+        return new MainActivityPresenterImpl();
+    }
 
 }
 
