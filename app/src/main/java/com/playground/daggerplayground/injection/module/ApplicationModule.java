@@ -1,6 +1,5 @@
 package com.playground.daggerplayground.injection.module;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.playground.daggerplayground.DaggerPlayGroundApplication;
@@ -22,13 +21,8 @@ import dagger.Provides;
 public abstract class ApplicationModule {
 
     @Binds
-    abstract Application application(DaggerPlayGroundApplication application);
-
-    @Provides
     @ApplicationContext
-    static Context provideContext(DaggerPlayGroundApplication application) {
-        return application.getApplicationContext();
-    }
+    abstract Context provideContext(DaggerPlayGroundApplication application);
 
     @Singleton
     @Provides

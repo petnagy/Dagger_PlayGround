@@ -31,6 +31,4 @@ public interface ApplicationComponent extends AndroidInjector<DaggerPlayGroundAp
     Context getContext();
 
     PreferenceService provideSharedPreference();
-
-    void inject(DaggerPlayGroundApplication daggerPlayGroundApplication);
 }
